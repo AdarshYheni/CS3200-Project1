@@ -3,9 +3,9 @@ PRAGMA foreign_keys = ON;
 -- 1) CORE IDENTITY TABLES
 
 CREATE TABLE IF NOT EXISTS User (
-  UserID TEXT PRIMARY KEY,
+  UserID TEXT PRIMARY KEY CHECK (UserID LIKE 'U%'),
   name TEXT NOT NULL,
-  email TEXT NOT NULL UNIQUE,
+  email TEXT NOT NULL UNIQUE CHECK (email LIKE '%@%'),
   phone_number TEXT,
   account_created_at TEXT NOT NULL
 );
